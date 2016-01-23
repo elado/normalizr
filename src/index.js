@@ -1,6 +1,7 @@
 import EntitySchema from './EntitySchema';
 import IterableSchema from './IterableSchema';
 import UnionSchema from './UnionSchema';
+import denormalize from './denormalize';
 import isObject from 'lodash/isObject';
 import isEqual from 'lodash/isEqual';
 import mapValues from 'lodash/mapValues';
@@ -118,6 +119,7 @@ export function unionOf(schema, options) {
 }
 
 export { EntitySchema as Schema };
+export { denormalize };
 
 export function normalize(obj, schema, options = {}) {
   if (!isObject(obj) && !Array.isArray(obj)) {
