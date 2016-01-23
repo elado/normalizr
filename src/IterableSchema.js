@@ -1,10 +1,10 @@
 import isObject from 'lodash/isObject';
 import UnionSchema from './UnionSchema';
 
-export default class ArraySchema {
+export default class IterableSchema {
   constructor(itemSchema, options = {}) {
     if (!isObject(itemSchema)) {
-      throw new Error('ArraySchema requires item schema to be an object.');
+      throw new Error('IterableSchema requires item schema to be an object.');
     }
 
     if (options.schemaAttribute) {
