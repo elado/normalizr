@@ -3,6 +3,8 @@ import IterableSchema from './IterableSchema';
 import UnionSchema from './UnionSchema';
 
 export default function denormalize(bag, schema, id) {
+  if (!id) return null
+
   let normalizedEntity = null
 
   if (schema.constructor === EntitySchema) {
@@ -16,6 +18,8 @@ export default function denormalize(bag, schema, id) {
   } else {
     throw new Error('no such schema type: ' + schema.constructor.name)
   }
+
+  if (!normalizedEntity) return null
 
   const instance = { ...normalizedEntity }
 
